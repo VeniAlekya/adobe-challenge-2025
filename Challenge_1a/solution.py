@@ -2,7 +2,8 @@ import fitz
 import json
 import re
 import os
-# Different types of conditions for heading detection
+
+
 class PDFHeadingExtractor:
     def __init__(self, min_font_size=10):
         self.min_font_size = min_font_size
@@ -62,7 +63,6 @@ class PDFHeadingExtractor:
                     flags = span["flags"]
                     color_rgb = tuple(int(span["color"] >> i & 0xFF) for i in (16, 8, 0))
 
-                    # Accept either fiction-style heading or a bold, large academic heading
                     is_fiction = self.is_fiction_heading(text)
                     is_academic = (
                         self.is_heading_candidate(text)
@@ -106,7 +106,20 @@ class PDFHeadingExtractor:
 
 
 if __name__ == "__main__":
-    PDF_PATH = "PDF path"
+    input_dir = "/app/input"
+    output_dir = "/app/output"
+    os.makedirs(output_dir, exist_ok=True)
+
     extractor = PDFHeadingExtractor(min_font_size=10)
-    result = extractor.extract_headings(PDF_PATH)
-    print(json.dumps(result, indent=2, ensure_ascii=False))
+
+    for filename in os.listdir(input_dir):
+        if filename.lower().endswith(".pdf"):
+            pdf_path = os.path.join(input_dir, filename)
+            output_json = os.path.join(output_dir, os.path.splitext(filename)[0] + ".json")
+
+            result = extractor.extract_headings(pdf_path)
+
+            with open(output_json, "w", encoding="utf-8") as f:
+                json.dump(result, f, indent=2, ensure_ascii=False)
+
+    print("✅ All PDF headings extracted and saved to /app/output/")

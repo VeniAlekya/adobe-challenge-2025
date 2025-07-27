@@ -7,11 +7,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 class PersonaDrivenDocumentAnalyzer:
-    def __init__(self, pdf_paths, persona, job_to_be_done):
-        self.pdf_paths = pdf_paths
+    def __init__(self, input_dir, persona, job_to_be_done):
+        self.input_dir = input_dir
         self.persona = persona
         self.job = job_to_be_done
         self.context_query = persona + " " + job_to_be_done
+        self.pdf_paths = [os.path.join(input_dir, f) for f in os.listdir(input_dir) if f.endswith(".pdf")]
         self.sections = []
 
     def extract_sections(self):
@@ -81,18 +82,18 @@ class PersonaDrivenDocumentAnalyzer:
         }
 
 
-# ---------- 🔽 Example Usage ----------
 if __name__ == "__main__":
-    folder = "D:/sem/6th sem/Term Paper"
-    pdf_files = [os.path.join(folder, f) for f in os.listdir(folder) if f.endswith(".pdf")]
+    INPUT_DIR = "/app/input"
+    OUTPUT_PATH = "/app/output/challenge1b_output.json"
 
     persona = "Travel Planner"
     job = "Plan a trip of 4 days for a group of 10 college friends."
 
-    analyzer = PersonaDrivenDocumentAnalyzer(pdf_files, persona, job)
+    analyzer = PersonaDrivenDocumentAnalyzer(INPUT_DIR, persona, job)
     output = analyzer.build_output()
 
-    with open("../../challenge1b_output.json", "w", encoding="utf-8") as f:
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=4, ensure_ascii=False)
 
-    print("✅ challenge1b_output.json generated.")
+    print("✅ challenge1b_output.json generated at /app/output")

@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.DS_Store
+.env
+
+# Ignore all PDFs except ones in input folders
+*.pdf
+!Challenge_1a/input/*.pdf
+!Challenge_1b/input/*.pdf
+
+# Ignore all output folders except include their contents
+Challenge_1a/output/
+Challenge_1b/output/
+!Challenge_1a/output/*.json
+!Challenge_1b/output/*.json
