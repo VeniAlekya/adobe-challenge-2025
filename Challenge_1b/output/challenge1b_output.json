@@ -1,0 +1,70 @@
+{
+    "metadata": {
+        "input_documents": [
+            "South of France - Cities.pdf",
+            "South of France - Cuisine.pdf"
+        ],
+        "persona": "Travel Planner",
+        "job_to_be_done": "Plan a trip of 4 days for a group of 10 college friends.",
+        "processing_timestamp": "2025-07-27T12:15:28.262614"
+    },
+    "extracted_sections": [
+        {
+            "document": "South of France - Cities.pdf",
+            "section_title": "Boat Trip to the Calanques : Take a boat trip to the Calanques, a series of stun",
+            "importance_rank": 1,
+            "page_number": 3
+        },
+        {
+            "document": "South of France - Cuisine.pdf",
+            "section_title": "wine regions, and the types of wines they produce to help you plan an unforgetta",
+            "importance_rank": 2,
+            "page_number": 1
+        },
+        {
+            "document": "South of France - Cuisine.pdf",
+            "section_title": "meal, the flavors of this beautiful region will leave a lasting impression. Use ",
+            "importance_rank": 3,
+            "page_number": 8
+        },
+        {
+            "document": "South of France - Cities.pdf",
+            "section_title": "areas. Learning a few basic French phrases can enhance your travel experience.",
+            "importance_rank": 4,
+            "page_number": 2
+        },
+        {
+            "document": "South of France - Cuisine.pdf",
+            "section_title": "linger long after your trip has ended. Bon appétit!",
+            "importance_rank": 5,
+            "page_number": 8
+        }
+    ],
+    "subsection_analysis": [
+        {
+            "document": "South of France - Cities.pdf",
+            "refined_text": "Boat Trip to the Calanques : Take a boat trip to the Calanques, a series of stunning",
+            "page_number": 3
+        },
+        {
+            "document": "South of France - Cuisine.pdf",
+            "refined_text": "wine regions, and the types of wines they produce to help you plan an unforgettable culinary",
+            "page_number": 1
+        },
+        {
+            "document": "South of France - Cuisine.pdf",
+            "refined_text": "meal, the flavors of this beautiful region will leave a lasting impression. Use this guide to plan",
+            "page_number": 8
+        },
+        {
+            "document": "South of France - Cities.pdf",
+            "refined_text": "areas. Learning a few basic French phrases can enhance your travel experience.",
+            "page_number": 2
+        },
+        {
+            "document": "South of France - Cuisine.pdf",
+            "refined_text": "linger long after your trip has ended. Bon appétit!",
+            "page_number": 8
+        }
+    ]
+}
